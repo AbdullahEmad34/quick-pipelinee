@@ -9,4 +9,10 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: npm test -- --watchAll=false
+      - run: npm test -- --coverage --watchAll=false
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+
